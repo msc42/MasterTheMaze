@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+// Copyright (C) 2016 Stefan Constantin
+//
+// This file is part of Master the maze.
+//
+// Master the maze is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Master the maze is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Master the maze. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<resources>
+
+    <string name="app_name">Master the maze</string>
+
+    <string name="gameDescriptionButton">Spielbeschreibung</string>
+    <string name="noLedDisplaySetMain">Kein Bluetooth LED-Display festgelegt. Bitte suchen (empfohlen) oder fügen Sie manuell ein Bluetooth LED-Display hinzu.</string>
+    <string name="ledDisplaySet">Festgelegtes Bluetooth LED-Display:\n%1$s\n%2$s</string>
+    <string name="noLedDisplayName">unbekannt</string>
+    <string name="searchLedDisplayButton">suche\nLED-Display</string>
+    <string name="setLedDisplayButton">manuell LED-Display\nhinzufügen</string>
+    <string name="startGameButton">Spiel starten</string>
+    <string name="difficultyLevelBarLabel">Schwierigkeitsgrad: %1$s</string>
+    <string name="easy">einfach</string>
+    <string name="medium">mittel</string>
+    <string name="difficult">schwer</string>
+    <string name="very_difficult">sehr schwer</string>
+    <string name="very_slowly">sehr langsam</string>
+    <string name="slowly">langsam</string>
+    <string name="normal">normal</string>
+    <string name="fast">schnell</string>
+    <string name="very_fast">sehr schnell</string>
+    <string name="controlLabel">Bewegungssteuerung:</string>
+    <string name="touchControlRadioButton">Touchscreen</string>
+    <string name="motionControlRadioButton">Bewegungssensoren</string>
+    <string name="speedBarLabel">Bewegungsgeschwindigkeit: %1$s</string>
+    <string name="sensitivityBarLabel">Bewegungssensorensensitivität (hängt vom Gerät ab): %1$.2f\nGrenzwert des Sensors, je niedriger die Werte, desto empfindlicher</string>
+
+    <string name="searchNote">Bluetooth Geräte müssen sichtbar oder gepairt sein, um gefunden zu werden. Um das Spiel zu spielen, muss das Bluetooth Gerät zum Spiel kompatibel und eingeschaltet sein.</string>
+    <string name="searchNoteWithoutPermission">Nur gepairte Bluetooth Geräte werden gefunden. Um sichtbare Bluetooth Geräte zu suchen, müssen Sie Zugriff auf den Standort erlauben. Um das Spiel zu spielen, muss das Bluetooth Gerät zum Spiel kompatibel und eingeschaltet sein.</string>
+    <string name="devicesLabel">Bluetooth Geräte:</string>
+
+    <string name="noLedDisplaySet">Kein Bluetooth LED-Display wurde festgelegt. Eine gültige Adresse wäre zum Beispiel: 12:34:56:78:9A:BC.</string>
+    <string name="newLedDisplayAddress">Neue Bluetooth LED-Display Adresse:</string>
+    <string name="newLedDisplayName">Neuer Bluetooth LED-Display Name (optional):</string>
+    <string name="invalidLedDisplayAddress">Die eingegebene Adresse ist nicht gültig. Eine gültige Adresse wäre zum Beispiel: 12:34:56:78:9A:BC.</string>
+    <string name="setNewLedDisplayButton">neues Bluetooth Gerät festlegen</string>
+
+    <string name="gameDescription">Das Spiel wird auf einem Bluetooth LED-Display angezeigt. Deshalb muss man ein Bluetooth LED-Display suchen oder manuell festlegen bevor man spielen kann. Bei einigen Geräten kann es notwendig sein, vor dem Start des Spiels das Gerät zu pairen. Weitere Informationen sind unter <a href="http://www.teco.edu/cm/dev/">http://www.teco.edu/cm/dev/</a> verfügbar.\n\nSie kontrollieren einen Punkt und müssen den Ausgang von jedem Level finden. Der Ausgang ist ein bestimmter Punkt oder eine bestimmte Gruppe von Punkten. Achtung, in den Level gibt es gegnerische Punkte. Außerdem gibt es Grenzpunkte und Teleportationspunkte, die einem zu einem bestimmten Platz im Level bringen.\n\nSie könne eigene Level designen oder herunterladen. Bitte fügen Sie in das Verzeichnis “MasterTheMaze” in Ihrem Home-Verzeichnis Dateien mit dem Namen “Level”, die Nummer des Levels und der Erweiterung ".json" hinzu. Starten Sie mit “Level1.json”, dann “Level2.json” und so weiter.</string>
+
+    <string name="connecting">verbinden</string>
+    <string name="pause">Spielbildschirm</string>
+    <string name="motionDescription">Bitte bewege das Gerät in die\ngewünschte Richtung, um deinen Punkt zu kontrollieren.</string>
+    <string name="touchDescription">Touchscreen\nModus</string>
+
+    <string name="yes">ja</string>
+    <string name="no">nein</string>
+    <string name="okay">okay</string>
+    <string name="abort">abbrechen</string>
+
+    <string name="exit">Verlassen</string>
+    <string name="error">Fehler</string>
+    <string name="info">Info</string>
+
+    <string name="exitGameMessage">Sind Sie sicher, dass Sie das Spiel verlassen wollen? Der aktuelle Spielstand geht dabei verloren.</string>
+    <string name="noPermissionReadStorage">Sie müssen Lesezugriff zum Speicher erlauben, wenn Sie Level vom Speicher spielen wollen. Wenn Sie nur die mitgelieferten Level spielen wollen, müssen Sie keinen Lesezugriff zum Speicher erlauben.</string>
+    <string name="getPermissionReadStorageWorkaround">Es kann nötig sein, die App zu beenden und neuzustarten, um Lesezugriff auf den Speicher zu bekommen.</string>
+    <string name="noPermissionLocation">Um ein Bluetooth LED-Display zu suchen, müssen Sie Zugriff auf den Standort erlauben. Ansonsten können nur gepairte Geräte angezeigt werden.</string>
+    <string name="noBluetoothExisting">Ihr Gerät hat kein Bluetooth.</string>
+    <string name="bluetoothOffGame">Sie müssen Bluetooth anschalten, um das Spiel zu spielen.</string>
+    <string name="bluetoothOffSearch">Sie müssen Bluetooth anschalten, um ein Bluetooth LED-Display zu suchen.</string>
+    <string name="noAccelerometerExisting">Ihr Gerät hat kein Beschleunigungssensor, bitte wählen Sie Touchscreen als Bewegungssteuerung.</string>
+    <string name="invalidLevel">Es gibt ein ungültiges Level mit Fehlercode: %1$s.</string>
+    <string name="levelStorageReadingError">Es gab ein Fehler beim Lesen vom Speicher.</string>
+    <string name="tryToReconnect">Versuche erneut zu verbinden. Bitte warten.</string>
+    <string name="bluetoothConnectionError">Es gab einen Fehler in der Bluetooth Verbindung.</string>
+    <string name="cannotEstablishConnection">Es konnte keine Verbindung mit dem Bluetooth LED-Display aufgebaut werden. Ist das Bluetooth LED-Display an? Ist das Bluetooth Gerät ein kompatibles Bluetooth LED-Display? Bei einigen Geräten kann es notwendig sein, vor dem Start des Spiels das Gerät zu pairen.</string>
+    <string name="bluetoothTurnedOffWhileUsing">Bitte deaktivieren Sie nicht Bluetooth während dem Spielen oder der Suche nach Geräten.</string>
+    <string name="failedHandshake">Fehlgeschlagener Handshake, bitte kontaktieren Sie den Admin von dem Bluetooth LED-display.</string>
+    <string name="rfcommNotSupported">Ihr Gerät unterstützt nicht das nötige Bluetooth Protokoll (RFCOMM, Port 16).</string>
+
+</resources>

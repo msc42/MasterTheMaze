@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+// Copyright (C) 2016 Stefan Constantin
+//
+// This file is part of Master the maze.
+//
+// Master the maze is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Master the maze is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Master the maze. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<resources>
+
+    <string name="app_name">Master the maze</string>
+
+    <string name="gameDescriptionButton">Game description</string>
+    <string name="noLedDisplaySetMain">No Bluetooth LED display is set. Please search (recommended) or set Bluetooth LED display.</string>
+    <string name="ledDisplaySet">Set Bluetooth LED display:\n%1$s\n%2$s</string>
+    <string name="noLedDisplayName">unknown</string>
+    <string name="searchLedDisplayButton">search\nLED display</string>
+    <string name="setLedDisplayButton">set manually\nLED display</string>
+    <string name="startGameButton">start game</string>
+    <string name="difficultyLevelBarLabel">Level of difficulty: %1$s</string>
+    <string name="easy">easy</string>
+    <string name="medium">medium</string>
+    <string name="difficult">difficult</string>
+    <string name="very_difficult">very difficult</string>
+    <string name="very_slowly">very slowly</string>
+    <string name="slowly">slowly</string>
+    <string name="normal">normal</string>
+    <string name="fast">fast</string>
+    <string name="very_fast">very fast</string>
+    <string name="controlLabel">Control:</string>
+    <string name="touchControlRadioButton">Touchscreen</string>
+    <string name="motionControlRadioButton">Motion sensor</string>
+    <string name="speedBarLabel">Motion speed: %1$s</string>
+    <string name="sensitivityBarLabel">Motion sensor sensitivity (depends on your device): %1$.2f\nthreshold of the sensor, the lower the values the more sensitive</string>
+
+    <string name="searchNote">Bluetooth devices must be visible or paired to be found. The search can take several seconds. To play the game the Bluetooth device must be compatible to the game and turned on.</string>
+    <string name="searchNoteWithoutPermission">Only paired Bluetooth devices are found. To search Bluetooth devices you have to allow access to the coarse location. To play the game the Bluetooth device must be compatible to the game and turned on.</string>
+    <string name="devicesLabel">Bluetooth devices:</string>
+
+    <string name="noLedDisplaySet">No Bluetooth LED display is set.\nA valid address would be for example: 12:34:56:78:9A:BC.</string>
+    <string name="newLedDisplayAddress">New Bluetooth LED display address:</string>
+    <string name="newLedDisplayName">New Bluetooth LED display name (optional):</string>
+    <string name="invalidLedDisplayAddress">The entered address is not valid. A valid address would be for example: 12:34:56:78:9A:BC.</string>
+    <string name="setNewLedDisplayButton">set new Bluetooth LED device</string>
+
+    <string name="gameDescription">The game is displayed on a Bluetooth LED display, therefore you have to search and set or set manually a Bluetooth LED display before you can play. On some devices, it is necessary to pair the device before you start the game. Further information are available at <a href="http://www.teco.edu/cm/dev/">http://www.teco.edu/cm/dev/</a>.\n\nYou control a point and must find the exit of each level. The exit is a certain point or a certain group of points. Pay attention in the levels are also moving enemy points. Furthermore, there are border points and teleport points, which bring you to a certain place in the level.\n\nYou can design your own levels or download levels. Please insert in a directory “MasterTheMaze” in your home directory files with the name “Level”, the number of the level and the extension ".json". Start with “Level1.json”, then “Level2.json” and so on.</string>
+
+    <string name="connecting">connecting</string>
+    <string name="pause">Game screen</string>
+    <string name="motionDescription">Please tilt your device in the\ndesired direction to control your point.</string>
+    <string name="touchDescription">Touchscreen\nmode</string>
+
+    <string name="yes">yes</string>
+    <string name="no">no</string>
+    <string name="okay">okay</string>
+    <string name="abort">abort</string>
+
+    <string name="exit">Exit</string>
+    <string name="error">Error</string>
+    <string name="info">Info</string>
+
+    <string name="exitGameMessage">Are you sure that you want to exit? The score will be lost.</string>
+    <string name="noPermissionReadStorage">You have to allow read access to the storage if you want to play levels from the storage. If you want to play only the included levels, you need not allow read access to the storage.</string>
+    <string name="getPermissionReadStorageWorkaround">It can be necessary to end the app and restart it to get read access to the storage.</string>
+    <string name="noPermissionLocation">To search for a Bluetooth LED display, you have to allow access to the coarse location. Otherwise, only paired devices can be shown.</string>
+    <string name="noBluetoothExisting">Your device has no Bluetooth.</string>
+    <string name="bluetoothOffGame">You have to turn Bluetooth on to play the game.</string>
+    <string name="bluetoothOffSearch">You have to turn Bluetooth on to search for a Bluetooth LED display.</string>
+    <string name="noAccelerometerExisting">Your device has not an accelerometer sensor, please choose touchscreen for control.</string>
+    <string name="invalidLevel">There is an invalid level file with error code: %1$s.</string>
+    <string name="levelStorageReadingError">There was an error by reading the level from the storage.</string>
+    <string name="tryToReconnect">Try to reconnect. Please wait.</string>
+    <string name="bluetoothConnectionError">There was an error in the Bluetooth connection.</string>
+    <string name="cannotEstablishConnection">Cannot connect to the Bluetooth LED display. Is the Bluetooth LED display on? Is the set Bluetooth device a compatible Bluetooth LED display? On some devices, it is necessary to pair the device before you start the game.</string>
+    <string name="bluetoothTurnedOffWhileUsing">Please do not disable Bluetooth while you are playing the game or searching for devices.</string>
+    <string name="failedHandshake">Failed handshake, please contact the admin of the Bluetooth LED display.</string>
+    <string name="rfcommNotSupported">Your device does not support the necessary Bluetooth protocol (RFCOMM, port 16).</string>
+
+</resources>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+// Copyright (C) 2016 Stefan Constantin
+//
+// This file is part of Master the maze.
+//
+// Master the maze is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Master the maze is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Master the maze. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".SetDeviceActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/ledsDeviceBeforeSetTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="New Text"
+            android:textColor="@color/colorFont"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/ledsDeviceNewAddressLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/newLedDisplayAddress"
+            android:textColor="@color/colorFont"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/ledsDeviceNewAddressEditText"
+            android:inputType="text"
+            android:maxLines="1"
+            android:imeOptions="actionDone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:id="@+id/ledsDeviceNewNameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/newLedDisplayName"
+            android:textColor="@color/colorFont"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/ledsDeviceNewNameEditText"
+            android:inputType="text"
+            android:maxLines="1"
+            android:imeOptions="actionDone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/setNewLedsDeviceButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:onClick="changeAddress"
+            android:text="@string/setNewLedDisplayButton"
+            android:textColor="@color/colorFont"
+            android:textSize="16sp"
+            android:background="@drawable/rounded_button" />
+
+    </LinearLayout>
+</ScrollView>

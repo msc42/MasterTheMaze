@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+// Copyright (C) 2016 Stefan Constantin
+//
+// This file is part of Master the maze.
+//
+// Master the maze is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Master the maze is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Master the maze. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp">
+
+        <Button
+            android:id="@+id/gameDescriptionButton"
+            android:onClick="openGameDescription"
+            android:text="@string/gameDescriptionButton"
+            android:textSize="28sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_button" />
+
+        <TextView
+            android:id="@+id/ledsDeviceTextView"
+            android:text="@string/noLedDisplaySetMain"
+            android:textColor="@color/colorFont"
+            android:textSize="16sp"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/searchLedsDeviceButton"
+                android:onClick="searchDevice"
+                android:text="@string/searchLedDisplayButton"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_button" />
+
+            <Button
+                android:id="@+id/setLedsDeviceButton"
+                android:onClick="changeMAC"
+                android:text="@string/setLedDisplayButton"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/rounded_button" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/startGameButton"
+            android:onClick="startGame"
+            android:text="@string/startGameButton"
+            android:textSize="28sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/rounded_button" />
+
+        <TextView
+            android:id="@+id/difficultyLevelBarLabel"
+            android:text="difficultyBarLabel"
+            android:textColor="@color/colorFont"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" />
+
+        <SeekBar
+            android:id="@+id/difficultyLevelBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/controlLabel"
+            android:text="@string/controlLabel"
+            android:textColor="@color/colorFont"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" />
+
+        <RadioGroup
+            android:id="@+id/controlRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/touchControlRadioButton"
+                android:onClick="enableTouch"
+                android:text="@string/touchControlRadioButton"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <RadioButton
+                android:id="@+id/motionControlRadioButton"
+                android:onClick="enableMotion"
+                android:text="@string/motionControlRadioButton"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/speedBarLabel"
+            android:text="speedBarLabel"
+            android:textColor="@color/colorFont"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <SeekBar
+            android:id="@+id/speedBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/sensitivityBarLabel"
+            android:text="sensitivityBarLabel"
+            android:textColor="@color/colorFont"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <SeekBar
+            android:id="@+id/sensitivityBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</ScrollView>
