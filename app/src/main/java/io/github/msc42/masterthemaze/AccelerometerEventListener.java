@@ -27,13 +27,22 @@ import io.github.msc42.maze.Game;
 
 class AccelerometerEventListener implements SensorEventListener {
 
+    protected static final int[][] DIRECTIONS = {
+            {Game.LEFT, Game.UP, Game.RIGHT, Game.DOWN}, // Surface.ROTATION_0
+            {Game.DOWN, Game.LEFT, Game.UP, Game.RIGHT}, // Surface.ROTATION_90
+            {Game.RIGHT, Game.DOWN, Game.LEFT, Game.UP}, // Surface.ROTATION_180
+            {Game.UP, Game.RIGHT, Game.DOWN, Game.LEFT}  // Surface.ROTATION_270
+    };
+
+    private int mRotation;
     private float mSensitivity;
     private CurrentMoveDirection mCurrentMoveDirection;
     private ArrayBlockingQueue<Integer> mMotionQueue;
 
 
-    protected AccelerometerEventListener(float sensitivity, CurrentMoveDirection currentMoveDirection,
+    protected AccelerometerEventListener(int rotation, float sensitivity, CurrentMoveDirection currentMoveDirection,
                                          ArrayBlockingQueue<Integer> motionQueue) {
+        this.mRotation = rotation;
         this.mSensitivity = sensitivity;
         this.mCurrentMoveDirection = currentMoveDirection;
         this.mMotionQueue = motionQueue;
@@ -50,13 +59,13 @@ class AccelerometerEventListener implements SensorEventListener {
             float y = event.values[1];
 
             if (x > mSensitivity && x > Math.abs(y)) {
-                setCurrentMoveDirection(Game.DOWN);
+                setCurrentMoveDirection(DIRECTIONS[mRotation][0]);
             } else if (y < -mSensitivity && -y > Math.abs(x)) {
-                setCurrentMoveDirection(Game.LEFT);
+                setCurrentMoveDirection(DIRECTIONS[mRotation][1]);
             } else if (x < -mSensitivity && -x > Math.abs(y)) {
-                setCurrentMoveDirection(Game.UP);
+                setCurrentMoveDirection(DIRECTIONS[mRotation][2]);
             } else if (y > mSensitivity && y > Math.abs(x)) {
-                setCurrentMoveDirection(Game.RIGHT);
+                setCurrentMoveDirection(DIRECTIONS[mRotation][3]);
             } else {
                 setCurrentMoveDirection(Game.NO_MOVE);
             }

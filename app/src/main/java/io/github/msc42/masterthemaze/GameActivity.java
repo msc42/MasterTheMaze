@@ -24,7 +24,6 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
@@ -35,7 +34,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.view.Surface;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -51,6 +49,7 @@ import io.github.msc42.maze.InvalidLevelException;
 
 /**
  * Represents the activity during playing the game.
+ * Requires a set screen orientation in the AndroidManifest.xml file.
  *
  * @author Stefan Constantin
  */
@@ -60,6 +59,7 @@ public final class GameActivity extends Activity {
     private boolean mMotion;
     private int mSpeed;
     private float mSensitivity;
+    private int mRotation;
 
     private Game mGame;
     private ArrayBlockingQueue<Integer> mMotionQueue = new ArrayBlockingQueue<Integer>(Constants.MOTION_QUEUE_SIZE);
@@ -97,25 +97,17 @@ public final class GameActivity extends Activity {
 
         mIntent = getIntent();
 
-        boolean haveToTurnDisplay = initScreen();
+        initScreen();
         getScreenElements();
 
-        // if the display is to turn, the game activity stops creating the rest things which are to
-        // create, because it will anyway be destroyed, because a screen rotation is requested
-        if (!haveToTurnDisplay) {
-            if (checkIfValidAddress()) {
-                if (checkIfSensorForMotionControlIsAvailableAndInitMotionControlParameter()) {
-                    initBluetoothAndStartGame();
-                }
+        if (checkIfValidAddress()) {
+            if (checkIfSensorForMotionControlIsAvailableAndInitMotionControlParameter()) {
+                initBluetoothAndStartGame();
             }
         }
     }
 
-    private boolean initScreen() {
-        // get current rotation before request to rotate to landscape
-        int oldRotation = getWindowManager().getDefaultDisplay().getRotation();
-
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+    private void initScreen() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -127,8 +119,6 @@ public final class GameActivity extends Activity {
         } else {
             setContentView(R.layout.activity_game_touch);
         }
-
-        return oldRotation != Surface.ROTATION_90;
     }
 
     private void getScreenElements() {
@@ -186,6 +176,8 @@ public final class GameActivity extends Activity {
             mSensitivity = mIntent.getFloatExtra(Constants.EXTRA_MESSAGE_SENSITIVITY,
                     Constants.DEFAULT_SENSOR_SENSITIVITY);
             mSpeed = mIntent.getIntExtra(Constants.EXTRA_MESSAGE_SPEED, Constants.DEFAULT_SPEED);
+
+            mRotation = getWindowManager().getDefaultDisplay().getRotation();
         }
 
         return true;
@@ -351,7 +343,7 @@ public final class GameActivity extends Activity {
             mSensorHandlerThread = new HandlerThread("SensorHandlerThread");
             mSensorHandlerThread.start();
             mSensorHandler = new Handler(mSensorHandlerThread.getLooper());
-            mAccelerometerEventListener = new AccelerometerEventListener(mSensitivity, mCurrentMoveDirection, mMotionQueue);
+            mAccelerometerEventListener = new AccelerometerEventListener(mRotation, mSensitivity, mCurrentMoveDirection, mMotionQueue);
         }
     }
 
@@ -498,7 +490,7 @@ public final class GameActivity extends Activity {
 
             SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
             Sensor accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-            mAccelerometerEventListener = new AccelerometerEventListener(mSensitivity,
+            mAccelerometerEventListener = new AccelerometerEventListener(mRotation, mSensitivity,
                     mCurrentMoveDirection, mMotionQueue);
 
             sensorManager.registerListener(mAccelerometerEventListener, accelerometer,
