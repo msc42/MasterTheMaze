@@ -59,7 +59,7 @@
 
     <string name="connecting">verbinden</string>
     <string name="pause">Spielbildschirm</string>
-    <string name="motionDescription">Bitte bewege das Gerät in die\ngewünschte Richtung, um deinen Punkt zu kontrollieren.</string>
+    <string name="motionDescription">Bitte bewegen Sie das Gerät in die\ngewünschte Richtung, um Ihren Punkt zu kontrollieren.</string>
     <string name="touchDescription">Touchscreen\nModus</string>
 
     <string name="yes">ja</string>
