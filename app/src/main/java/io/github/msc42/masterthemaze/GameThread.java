@@ -23,6 +23,7 @@ import android.bluetooth.BluetoothSocket;
 import android.os.Handler;
 import android.os.Message;
 import android.os.ParcelUuid;
+import android.os.Process;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -91,6 +92,8 @@ final class GameThread extends Thread {
 
     @Override
     public void run() {
+        Process.setThreadPriority(Process.THREAD_PRIORITY_URGENT_DISPLAY);
+
         try {
             openConnection();
         } catch (BluetoothDisabledException e) {

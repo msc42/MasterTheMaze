@@ -17,6 +17,8 @@
 
 package io.github.msc42.masterthemaze;
 
+import android.os.Process;
+
 import java.util.concurrent.ArrayBlockingQueue;
 
 /**
@@ -47,6 +49,8 @@ final class AddCurrentDirectionToQueueThread extends Thread {
     }
 
     public void run() {
+        Process.setThreadPriority(Process.THREAD_PRIORITY_URGENT_DISPLAY);
+
         while (mRunning) {
 
             long timeStart = System.currentTimeMillis();

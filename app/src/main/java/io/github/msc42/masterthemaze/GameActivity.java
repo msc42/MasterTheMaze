@@ -31,6 +31,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
+import android.os.Process;
 import android.os.Message;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -340,7 +341,7 @@ public final class GameActivity extends Activity {
         mGameThread.start();
 
         if (mMotion) {
-            mSensorHandlerThread = new HandlerThread("SensorHandlerThread");
+            mSensorHandlerThread = new HandlerThread("SensorHandlerThread", Process.THREAD_PRIORITY_URGENT_DISPLAY);
             mSensorHandlerThread.start();
             mSensorHandler = new Handler(mSensorHandlerThread.getLooper());
             mAccelerometerEventListener = new AccelerometerEventListener(mRotation, mSensitivity, mCurrentMoveDirection, mMotionQueue);
