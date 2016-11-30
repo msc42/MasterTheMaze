@@ -88,6 +88,9 @@ final class GameThread extends Thread {
 
     protected void terminate() {
         mRunning = false;
+        mPause = false;
+        mStopReconnecting = true;
+        interrupt();
     }
 
     @Override
