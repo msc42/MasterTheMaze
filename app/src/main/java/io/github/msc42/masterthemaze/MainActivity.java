@@ -228,6 +228,13 @@ public final class MainActivity extends AppCompatActivity {
     public void startGame(View v) {
         Intent intent = new Intent(this, GameActivity.class);
         intent.putExtra(Constants.EXTRA_MESSAGE_CONTROL, mMotion);
+
+        if (mBluetoothDeviceName != null) {
+            intent.putExtra(Constants.EXTRA_MESSAGE_DEVICE_NAME, mBluetoothDeviceName);
+        } else {
+            intent.putExtra(Constants.EXTRA_MESSAGE_DEVICE_NAME, getString(R.string.noLedDisplayName));
+        }
+
         intent.putExtra(Constants.EXTRA_MESSAGE_MAC, mBluetoothAddress);
         intent.putExtra(Constants.EXTRA_MESSAGE_SPEED, mSpeed);
         intent.putExtra(Constants.EXTRA_MESSAGE_DIFFICULTY, mDifficulty);

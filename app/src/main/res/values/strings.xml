@@ -55,7 +55,7 @@
     <string name="invalidLedDisplayAddress">The entered address is not valid. A valid address would be for example: 12:34:56:78:9A:BC.</string>
     <string name="setNewLedDisplayButton">set new Bluetooth LED device</string>
 
-    <string name="gameDescription">The game is displayed on a Bluetooth LED display, therefore you have to search and set or set manually a Bluetooth LED display before you can play. On some devices, it is necessary to pair the device before you start the game. Further information are available at <a href="http://www.teco.edu/cm/dev/">http://www.teco.edu/cm/dev/</a>.\n\nYou control a point and must find the exit of each level. The exit is a certain point or a certain group of points. Pay attention in the levels are also moving enemy points. Furthermore, there are border points and teleport points, which bring you to a certain place in the level.\n\nYou can design your own levels or download levels. Please insert in a directory “MasterTheMaze” in your home directory files with the name “Level”, the number of the level and the extension ".json". Start with “Level1.json”, then “Level2.json” and so on.</string>
+    <string name="gameDescription">The game is displayed on a Bluetooth LED display, therefore you have to search and set or set manually a Bluetooth LED display before you can play. On some devices, it is necessary to pair the device before you start the game. Further information are available at <a href="http://www.teco.edu/cm/dev/">http://www.teco.edu/cm/dev/</a>.\n\nYou control a point (the brightest) and must find the exit of each level. The exit is a certain point or a certain group of points. Pay attention in the levels are also moving enemy points. Furthermore, there are teleport points, which bring you to a certain place in the level. The border points are the darkest points.\n\nYou can design your own levels or download levels. Please insert in a directory “MasterTheMaze” in your home directory files with the name “Level”, the number of the level and the extension ".json". Start with “Level1.json”, then “Level2.json” and so on.</string>
 
     <string name="connecting">connecting</string>
     <string name="pause">Game screen</string>
@@ -83,7 +83,7 @@
     <string name="levelStorageReadingError">There was an error by reading the level from the storage.</string>
     <string name="tryToReconnect">Try to reconnect. Please wait.</string>
     <string name="bluetoothConnectionError">There was an error in the Bluetooth connection.</string>
-    <string name="cannotEstablishConnection">Cannot connect to the Bluetooth LED display. Is the Bluetooth LED display on? Is the set Bluetooth device a compatible Bluetooth LED display? On some devices, it is necessary to pair the device before you start the game.</string>
+    <string name="cannotEstablishConnection">Cannot connect to the Bluetooth LED display (%1$s %2$s). Is the Bluetooth LED display on? Is it within in range? Is the set Bluetooth device a compatible Bluetooth LED display? On some devices, it is necessary to pair the device before you start the game.</string>
     <string name="bluetoothTurnedOffWhileUsing">Please do not disable Bluetooth while you are playing the game or searching for devices.</string>
     <string name="failedHandshake">Failed handshake, please contact the admin of the Bluetooth LED display.</string>
     <string name="rfcommNotSupported">Your device does not support the necessary Bluetooth protocol (RFCOMM, port 16).</string>

@@ -74,6 +74,8 @@ public final class GameActivity extends Activity {
     private Handler mSensorHandler;
     private AccelerometerEventListener mAccelerometerEventListener;
 
+    private String mBluetoothDeviceName;
+    private String mBluetoothAddress;
     private BluetoothAdapter mBluetoothAdapter;
     private BluetoothDevice mBluetoothDevice;
 
@@ -229,8 +231,10 @@ public final class GameActivity extends Activity {
     }
 
     private void startGame() {
-        String macAddress = mIntent.getStringExtra(Constants.EXTRA_MESSAGE_MAC);
-        mBluetoothDevice = mBluetoothAdapter.getRemoteDevice(macAddress);
+        mBluetoothDeviceName = mIntent.getStringExtra(Constants.EXTRA_MESSAGE_DEVICE_NAME);
+        mBluetoothAddress = mIntent.getStringExtra(Constants.EXTRA_MESSAGE_MAC);
+
+        mBluetoothDevice = mBluetoothAdapter.getRemoteDevice(mBluetoothAddress);
 
         if (initGame()) {
             startGameThreads();
@@ -363,7 +367,7 @@ public final class GameActivity extends Activity {
     private void showBluetoothCannotEstablishConnectionDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.error)
-                .setMessage(R.string.cannotEstablishConnection)
+                .setMessage(getString(R.string.cannotEstablishConnection, mBluetoothDeviceName, mBluetoothAddress))
                 .setCancelable(false)
                 .setPositiveButton(R.string.okay, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
