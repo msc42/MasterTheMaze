@@ -58,8 +58,10 @@ public final class SearchDeviceActivity extends AppCompatActivity {
     private ArrayList<String> mDevicesList = new ArrayList<String>();
 
     private Handler mDiscoveryRepeatHandler;
+    private RepeatedDiscovery mRepeatedDiscoveryRunnable;
+    private boolean canOnResumeStartRepeatedDiscovery = false;
 
-    private boolean mShowDoNotDisableBluetoothMessage = false;
+    private boolean mShowDoNotDisableBluetoothMessage = true;
 
     private TextView mSearchNoteTextView;
     private ListView mBluetoothDevicesListView;
@@ -177,15 +179,11 @@ public final class SearchDeviceActivity extends AppCompatActivity {
     }
 
     private void startRepeatedDiscovery() {
-        startDiscovery();
-
         mDiscoveryRepeatHandler = new Handler();
-        mDiscoveryRepeatHandler.postDelayed(new Runnable() {
-            public void run() {
-                startDiscovery();
-                mDiscoveryRepeatHandler.postDelayed(this, Constants.MILLISECONDS_TO_REPEAT_DISCOVERY);
-            }
-        }, Constants.MILLISECONDS_TO_REPEAT_DISCOVERY);
+        mRepeatedDiscoveryRunnable = new RepeatedDiscovery();
+
+        mDiscoveryRepeatHandler.postDelayed(mRepeatedDiscoveryRunnable, 0);
+        canOnResumeStartRepeatedDiscovery = true;
     }
 
     private void startDiscovery() {
@@ -215,8 +213,8 @@ public final class SearchDeviceActivity extends AppCompatActivity {
     }
 
     private void showDoNotDisableBluetoothMessage() {
-        if (!mShowDoNotDisableBluetoothMessage) {
-            mShowDoNotDisableBluetoothMessage = true;
+        if (mShowDoNotDisableBluetoothMessage) {
+            mShowDoNotDisableBluetoothMessage = false;
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(R.string.error)
                     .setMessage(R.string.bluetoothTurnedOffWhileUsing)
@@ -244,6 +242,11 @@ public final class SearchDeviceActivity extends AppCompatActivity {
 
         IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
         registerReceiver(mReceiver, filter);
+
+        if (canOnResumeStartRepeatedDiscovery) {
+            mDiscoveryRepeatHandler.removeCallbacks(mRepeatedDiscoveryRunnable);
+            mDiscoveryRepeatHandler.postDelayed(mRepeatedDiscoveryRunnable, 0);
+        }
     }
 
     @Override
@@ -252,9 +255,20 @@ public final class SearchDeviceActivity extends AppCompatActivity {
 
         unregisterReceiver(mReceiver);
 
+        if (mDiscoveryRepeatHandler != null && mRepeatedDiscoveryRunnable != null) {
+            mDiscoveryRepeatHandler.removeCallbacks(mRepeatedDiscoveryRunnable);
+        }
+
         if (mBluetoothAdapter != null) {
             mBluetoothAdapter.cancelDiscovery();
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        mShowDoNotDisableBluetoothMessage = false;
+
+        super.onDestroy();
     }
 
     @Override
@@ -306,6 +320,14 @@ public final class SearchDeviceActivity extends AppCompatActivity {
             default:
                 // other request codes are ignored
                 break;
+        }
+    }
+
+    private class RepeatedDiscovery implements Runnable {
+        @Override
+        public void run() {
+            startDiscovery();
+            mDiscoveryRepeatHandler.postDelayed(this, Constants.MILLISECONDS_TO_REPEAT_DISCOVERY);
         }
     }
 }
